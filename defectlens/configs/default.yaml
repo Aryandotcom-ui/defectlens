@@ -1,0 +1,45 @@
+# DefectLens default configuration.
+# Paths point at Google Drive when running on Colab. Override any of them on the
+# command line, e.g.  --data_root /kaggle/input/mvtec-ad --work_root /kaggle/working/defectlens
+
+data_root: /content/drive/MyDrive/defectlens/data/mvtec_ad   # folder containing carpet/, leather/, ...
+work_root: /content/drive/MyDrive/defectlens/work            # caches, models, scores, results
+
+categories: [carpet, leather, tile, bottle, screw, metal_nut]
+image_size: 224          # resize directly (no center crop) so border defects survive
+calib_fraction: 0.15     # share of train/good held out for threshold calibration
+seed: 0
+
+patchcore:
+  # backbone is fixed: WideResNet50-2 (layer2 + layer3), see defectlens/patchcore.py
+  pretrained: true       # ImageNet weights (set false only for offline smoke tests)
+  cache_features: true   # save training features before coreset (~0.5-0.8 GB per category on Drive)
+  coreset_ratio: 0.10    # fraction of training patches kept in the memory bank
+  projection_dim: 128    # random projection used only for coreset distance computations
+  batch_size: 16
+  blur_sigma: 4
+
+classical:
+  gabor_wavelengths: [4, 8, 16]   # 3 scales (pixels)
+  gabor_orientations: 4           # 0, 45, 90, 135 degrees
+  lbp_points: 8
+  lbp_radius: 1
+  blur_sigma: 4
+
+calibration:
+  image_percentile: 99   # tau_image: PASS/FAIL decision
+  pixel_percentile: 99   # tau_pixel: defect mask
+  patch_percentile: 99   # reference level shown in explanations
+
+postprocess:
+  kernel: 5              # elliptical structuring element size for open/close
+  min_area: 30           # discard connected components smaller than this (pixels)
+
+eval:
+  pro_fpr_limit: 0.3     # AU-PRO integrated up to 30% FPR (MVTec protocol)
+  benchmark_images: 20   # test images per category for the same-device speed benchmark
+
+demo:
+  coreset_ratio: 0.01    # lighter memory bank for the free Hugging Face Spaces tier
+  gallery_good: 2
+  gallery_defect: 4

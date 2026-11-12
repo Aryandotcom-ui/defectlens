@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# data and heavy outputs live on Google Drive, not in git
+data/
+work/
+cache/
+app/artifacts/
+*.pt
+*.npz
