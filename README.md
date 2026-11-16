@@ -16,7 +16,7 @@ Two detectors are compared on MVTec AD (carpet, leather, tile, bottle, screw, me
 
 ## Results
 
-> Filled in after running `03_evaluate.ipynb` — copy `work/results/metrics.md` here.
+> Filled in after running `notebooks/run_all.ipynb` (step 3) — copy `work/results/metrics.md` here.
 
 | Method | Image AUROC | Pixel AUROC | AU-PRO (30% FPR) | Image F1 | Pixel IoU |
 |---|---|---|---|---|---|
@@ -51,13 +51,17 @@ Nothing heavy runs on your laptop. Its only job is a browser.
 2. **Open `notebooks/00_setup_and_data.ipynb` in Colab** (Colab → File → Open notebook → GitHub tab).
    Set `REPO_URL`, accept the MVTec AD license on the MVTec website, paste the download link,
    run all cells. The 6 categories land in `MyDrive/defectlens/data/mvtec_ad/`.
-3. **`01_patchcore.ipynb`** on a **T4 GPU** runtime → memory banks + scores.
-4. **`02_classical.ipynb`** on a **CPU** runtime → classical models + scores.
-5. **`03_evaluate.ipynb`** → thresholds, metrics table, figures in `MyDrive/defectlens/work/results/`.
-6. *(Stretch)* **`04_stretch.ipynb`** → robustness study + coreset ablation.
-7. **`05_deploy_space.ipynb`** → builds the demo artifacts and pushes the app to your Hugging Face Space.
+3. **Open `notebooks/run_all.ipynb`** on a **T4 GPU** runtime and run its steps in order:
+   1. PatchCore → memory banks + scores
+   2. Classical baseline → models + scores (runs on CPU even on the GPU runtime)
+   3. Evaluate → thresholds, metrics table, figures in `MyDrive/defectlens/work/results/`
+   4. AU-PRO parity check + same-device speed benchmark
+   5. Show results
+   6. *(Stretch)* robustness study + coreset ablation
+   7. Deploy the demo to your Hugging Face Space
 
-Every notebook starts with the same setup cell (mount Drive, clone/pull repo, install requirements).
+Both notebooks start with the same setup cell (mount Drive, clone/pull repo, install requirements).
+If Colab disconnects, re-run the setup cell and continue from the step you were on; finished work is skipped.
 
 ### Running on Kaggle instead
 Create a Kaggle notebook with GPU enabled, attach an MVTec AD dataset, then:
@@ -95,7 +99,7 @@ defectlens/
 │   ├── robustness.py           (stretch) metrics under perturbations
 │   └── export_demo.py          1% banks + crops + gallery for the demo → work/demo_artifacts
 ├── tests/test_metrics.py       AU-PRO / IoU checks, no downloads needed
-├── notebooks/                  00–05: Colab drivers (setup, PatchCore, classical, eval, stretch, deploy)
+├── notebooks/                  00_setup_and_data (download data, once) · run_all (everything else)
 ├── app/streamlit_app.py        the demo: inspect tab, results tab, how-it-works tab
 └── deploy/                     Hugging Face Space files: Dockerfile, requirements, Space README
 ```

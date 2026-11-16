@@ -290,12 +290,8 @@ defectlens/
 │   ├── perturb.py                # robustness transforms (images + masks)
 │   └── viz.py                    # overlays and figures
 ├── notebooks/
-│   ├── 00_setup_and_data.ipynb   # mount Drive, clone repo, download MVTec
-│   ├── 01_patchcore.ipynb        # GPU: extract, coreset, score
-│   ├── 02_classical.ipynb        # CPU runtime: Gabor/LBP baseline
-│   ├── 03_evaluate.ipynb         # metrics, AU-PRO, figures
-│   ├── 04_stretch.ipynb          # robustness + coreset ablation
-│   └── 05_deploy_space.ipynb     # export demo + push to Hugging Face
+│   ├── 00_setup_and_data.ipynb   # mount Drive, clone repo, download MVTec (once, CPU)
+│   └── run_all.ipynb             # T4 GPU: PatchCore, classical, evaluate, parity, speed, stretch, deploy
 ├── scripts/
 │   ├── run_patchcore.py          # fit + score PatchCore
 │   ├── run_classical.py          # fit + score classical baseline

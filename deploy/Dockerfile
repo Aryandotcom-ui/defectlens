@@ -1,5 +1,5 @@
 # Hugging Face Space (Docker SDK) image for the DefectLens Streamlit demo.
-# notebooks/05_deploy_space.ipynb uploads this file to the Space root together with
+# Step 7 of notebooks/run_all.ipynb uploads this file to the Space root together with
 # defectlens/, app/ (including app/artifacts/), configs/ and requirements-space.txt.
 FROM python:3.11-slim
 

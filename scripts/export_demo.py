@@ -8,7 +8,7 @@ Per category:
     - a small gallery of test images with ground-truth masks
 Plus results/metrics.md and figures if evaluate.py has been run.
 
-Output: <work_root>/demo_artifacts/   (pushed to the Space by notebooks/05_deploy_space.ipynb)
+Output: <work_root>/demo_artifacts/   (pushed to the Space by step 7 of notebooks/run_all.ipynb)
 """
 
 import json
