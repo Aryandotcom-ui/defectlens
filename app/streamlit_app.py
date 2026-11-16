@@ -106,6 +106,8 @@ with tab_inspect:
             out = pc.predict(image[None]) if name == "PatchCore" else cl.predict(image[None])
             amap, score = out["maps"][0], float(out["image_scores"][0])
             mask, defects = find_defects(amap, th["tau_pixel"], post["kernel"], post["min_area"])
+            if score <= th["tau_image"]:          # PASS: don't report sub-threshold blobs
+                mask, defects = np.zeros_like(mask), []
             report = inspection_report(category, name, score, th["tau_image"], defects)
 
             st.subheader(name)
