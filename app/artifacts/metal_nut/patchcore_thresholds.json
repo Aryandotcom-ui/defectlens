@@ -1,0 +1,9 @@
+{
+  "tau_image": 2.3238308429718018,
+  "tau_pixel": 1.9794466495513916,
+  "tau_patch": 2.0607731342315674,
+  "image_percentile": 99,
+  "pixel_percentile": 99,
+  "patch_percentile": 99,
+  "n_calibration_images": 33
+}

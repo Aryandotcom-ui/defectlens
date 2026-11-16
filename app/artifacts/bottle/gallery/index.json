@@ -1,0 +1,32 @@
+[
+  {
+    "name": "good_000",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "good_001",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "broken_large_000",
+    "defect_type": "broken_large",
+    "label": 1
+  },
+  {
+    "name": "broken_small_000",
+    "defect_type": "broken_small",
+    "label": 1
+  },
+  {
+    "name": "contamination_000",
+    "defect_type": "contamination",
+    "label": 1
+  },
+  {
+    "name": "broken_large_001",
+    "defect_type": "broken_large",
+    "label": 1
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "good_000",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "good_001",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "manipulated_front_000",
+    "defect_type": "manipulated_front",
+    "label": 1
+  },
+  {
+    "name": "scratch_head_000",
+    "defect_type": "scratch_head",
+    "label": 1
+  },
+  {
+    "name": "scratch_neck_000",
+    "defect_type": "scratch_neck",
+    "label": 1
+  },
+  {
+    "name": "thread_side_000",
+    "defect_type": "thread_side",
+    "label": 1
+  }
+]

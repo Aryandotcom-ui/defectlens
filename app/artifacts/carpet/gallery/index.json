@@ -1,0 +1,32 @@
+[
+  {
+    "name": "good_000",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "good_001",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "color_000",
+    "defect_type": "color",
+    "label": 1
+  },
+  {
+    "name": "cut_000",
+    "defect_type": "cut",
+    "label": 1
+  },
+  {
+    "name": "hole_000",
+    "defect_type": "hole",
+    "label": 1
+  },
+  {
+    "name": "metal_contamination_000",
+    "defect_type": "metal_contamination",
+    "label": 1
+  }
+]

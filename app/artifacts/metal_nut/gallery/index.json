@@ -1,0 +1,32 @@
+[
+  {
+    "name": "good_000",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "good_001",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "bent_000",
+    "defect_type": "bent",
+    "label": 1
+  },
+  {
+    "name": "color_000",
+    "defect_type": "color",
+    "label": 1
+  },
+  {
+    "name": "flip_000",
+    "defect_type": "flip",
+    "label": 1
+  },
+  {
+    "name": "scratch_000",
+    "defect_type": "scratch",
+    "label": 1
+  }
+]

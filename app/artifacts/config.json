@@ -1,0 +1,52 @@
+{
+  "data_root": "/content/drive/MyDrive/defectlens/data/mvtec_ad",
+  "work_root": "/content/drive/MyDrive/defectlens/work",
+  "categories": [
+    "carpet",
+    "leather",
+    "tile",
+    "bottle",
+    "screw",
+    "metal_nut"
+  ],
+  "image_size": 224,
+  "calib_fraction": 0.15,
+  "seed": 0,
+  "patchcore": {
+    "pretrained": true,
+    "cache_features": true,
+    "coreset_ratio": 0.1,
+    "projection_dim": 128,
+    "batch_size": 16,
+    "blur_sigma": 4
+  },
+  "classical": {
+    "gabor_wavelengths": [
+      4,
+      8,
+      16
+    ],
+    "gabor_orientations": 4,
+    "lbp_points": 8,
+    "lbp_radius": 1,
+    "blur_sigma": 4
+  },
+  "calibration": {
+    "image_percentile": 99,
+    "pixel_percentile": 99,
+    "patch_percentile": 99
+  },
+  "postprocess": {
+    "kernel": 5,
+    "min_area": 30
+  },
+  "eval": {
+    "pro_fpr_limit": 0.3,
+    "benchmark_images": 20
+  },
+  "demo": {
+    "coreset_ratio": 0.01,
+    "gallery_good": 2,
+    "gallery_defect": 4
+  }
+}

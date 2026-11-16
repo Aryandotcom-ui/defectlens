@@ -1,0 +1,32 @@
+[
+  {
+    "name": "good_000",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "good_001",
+    "defect_type": "good",
+    "label": 0
+  },
+  {
+    "name": "crack_000",
+    "defect_type": "crack",
+    "label": 1
+  },
+  {
+    "name": "glue_strip_000",
+    "defect_type": "glue_strip",
+    "label": 1
+  },
+  {
+    "name": "gray_stroke_000",
+    "defect_type": "gray_stroke",
+    "label": 1
+  },
+  {
+    "name": "oil_000",
+    "defect_type": "oil",
+    "label": 1
+  }
+]
