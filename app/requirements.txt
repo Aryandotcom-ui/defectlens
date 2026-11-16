@@ -1,0 +1,13 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1+cpu
+torchvision==0.20.1+cpu
+numpy
+scipy
+scikit-learn
+scikit-image
+opencv-python-headless
+matplotlib
+pandas
+tabulate
+pyyaml
+streamlit>=1.40

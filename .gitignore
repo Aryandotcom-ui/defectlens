@@ -8,6 +8,7 @@ venv/
 data/
 work/
 cache/
-app/artifacts/
 *.pt
 *.npz
+!app/artifacts/**/*.pt
+!app/artifacts/**/*.npz
