@@ -16,14 +16,34 @@ Two detectors are compared on MVTec AD (carpet, leather, tile, bottle, screw, me
 
 ## Results
 
-> Filled in after running `notebooks/run_all.ipynb` (step 3) — copy `work/results/metrics.md` here.
+MVTec AD, 6 categories, 224×224 input. Thresholds calibrated on held-out normal images only.
 
-| Method | Image AUROC | Pixel AUROC | AU-PRO (30% FPR) | Image F1 | Pixel IoU |
+**Mean over the 6 categories**
+
+| Method | Image AUROC | Pixel AUROC | AU-PRO (30% FPR) | Image F1 | Speed, same CPU |
 |---|---|---|---|---|---|
-| PatchCore | – | – | – | – | – |
-| Classical (Gabor+LBP) | – | – | – | – | – |
+| PatchCore-style (ours) | 0.985 | 0.984 | 0.925 | 0.966 | 903 ms/img (43 ms on a T4 GPU) |
+| Classical (Gabor+LBP) | 0.887 | 0.931 | 0.794 | 0.753 | 77 ms/img |
 
-**Live demo:** `https://huggingface.co/spaces/<your-hf-username>/defectlens`
+**Per category: Image AUROC / AU-PRO**
+
+| Category | PatchCore-style | Classical |
+|---|---|---|
+| carpet | 0.998 / 0.937 | 0.748 / 0.698 |
+| leather | 1.000 / 0.965 | 0.999 / 0.954 |
+| tile | 1.000 / 0.847 | 0.956 / 0.679 |
+| bottle | 1.000 / 0.933 | 0.970 / 0.888 |
+| screw | 0.917 / 0.934 | 0.804 / 0.851 |
+| metal_nut | 0.997 / 0.932 | 0.847 / 0.695 |
+
+**Findings**
+- Deep patch features beat handcrafted texture features overall, by the widest margin on carpet and on the rotated parts (screw, metal_nut).
+- The classical baseline is near-perfect on leather, so handcrafted features suffice for some textures.
+- Per-location statistics assume alignment, and break on parts that appear at arbitrary rotations (classical recall on screw: 0.18).
+- Speed–accuracy trade-off: on the same CPU the classical baseline is ~12× faster.
+- AU-PRO matches MVTec's reference implementation (max |diff| 3.9e-4 across all 12 maps).
+
+**Live demo:** `**Live demo:** https://https://defectlens.streamlit.app`
 
 ---
 
